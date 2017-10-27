@@ -1,17 +1,16 @@
 #include <stdio.h>
 void select_sort(int a[],int i)
 {
-    int j,k,x,n;
+    int j,k,n;
     for(j=1;j<i;j++)
     {
        int x=a[j-1];
-       for(k=i-1;k>=j-1;k--)
+       for(k=i-1;k>j-1;k--)
        {
+
            if(a[k]<x)
-            {x=a[k];
-             n=k;}
+            {x=a[k];n=k;}
        }
-       x=a[n];
        a[n]=a[j-1];
        a[j-1]=x;
     }
