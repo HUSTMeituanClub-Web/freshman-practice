@@ -1,5 +1,6 @@
 body{
     font-family: "Open Sans", sans-serif;
+    background: rgba(0,0,0,0.02);
     margin: 0;
     padding: 0;
 }
@@ -53,6 +54,7 @@ body{
     border-right: solid 1px rgba(0,0,0,0.1);
     width: 300px;
     height: 100%;
+    padding-top: 100px;
     top: 0;
     left: 0;
     position: fixed;
@@ -60,23 +62,25 @@ body{
 }
 
 #right {
-    max-width: 400px;
-    min-width: 300px;
+    width: 400px;
+    position: absolute;
+    right: 50px;
+    top: 100px;
 }
 
 #root {
     flex-flow: row;
     align-content: stretch;
-    background: rgba(0,0,0,0.02);
     
 }
 
 
 @media all and (min-width: 1880px){
     #main {
-        max-width: 1280px;
+        max-width: 1100px;
         min-width: 800px;
         margin: auto;
+        margin-right: 500px;
     }
 }
 @media all and (max-width: 1880px) {
@@ -85,11 +89,11 @@ body{
       }
 }
 
-#right-block {
-    background-color: #f1f1f1;
-    height: 1000px;
-    width: 300px;
+#right-nav {
+    background-color: #F0F0F0;
+    min-height: 400px;
     margin-top: 100px;
+    padding: 30px;
 }
 
 #wrap {
@@ -112,4 +116,65 @@ h1 {
 
 section {
     margin-bottom: 100px;
+}
+
+#left-nav li {
+    list-style: none;
+    margin-left: 2em;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+}
+
+#left-nav .link {
+    color: #00BCD4;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+#left-nav .item {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.nav-extended::before {
+    content: "▼";
+    color: #00BCD4;
+    font-size: 0.8em;
+}
+
+#right-nav-title {
+    font-size: 20px;
+    color: #00BCD4;
+    font-weight: 600;
+}
+
+.right-nav-item {
+    list-style: none;
+    padding: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0,0,0,0.5);
+}
+
+a {
+    cursor: pointer;
+}
+
+footer {
+    height: 100px;
+    padding-left: 300px;
+}
+
+#copy-right {
+    margin-top: 30px;
+    text-align: center;
+    color: rgba(0,0,0,0.3)
+}
+
+#github-link {
+    color: #00BCD4;
 }
