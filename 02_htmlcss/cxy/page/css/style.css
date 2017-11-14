@@ -1,23 +1,25 @@
 body{
     font-family: "Open Sans", sans-serif;
-    background: rgba(0,0,0,0.02);
+    background: rgba(0,0,0,0.04);
     margin: 0;
     padding: 0;
 }
 #logo {
     font-size: 30px;
     font-weight: bold;
-    color: rgba(0,0,0,0.3);
+    color: rgba(0,0,0,0.4);
     padding: 10px 0 10px 30px;
     display: inline-block;
     vertical-align: middle;
 }
 
 #top {
-    border-bottom: solid 1px rgba(0,0,0,0.1);
-    position: fixed;
-    background-color: white;
-    width: 100%;
+    /*border-bottom: solid 1px rgba(0,0,0,0.1);*/
+    /*position: fixed;*/
+    /*background-color: white;*/
+    /*width: 100%;*/
+    max-width: 1440px;
+    margin: auto;
     z-index: 100;
     top: 0;
     left: 0;
@@ -50,54 +52,56 @@ body{
 }
 
 #left {
-    background-color: white;
-    border-right: solid 1px rgba(0,0,0,0.1);
+    /*background-color: white;*/
+    /*border-right: solid 1px rgba(0,0,0,0.1);*/
     width: 300px;
-    height: 100%;
-    padding-top: 100px;
-    top: 0;
-    left: 0;
-    position: fixed;
+    height: auto;
+    /*padding-top: 100px;*/
+    /*top: 0;
+    left: 0;*/
+    /*position: fixed;*/
     z-index: 10;
 }
 
 #right {
-    width: 400px;
-    position: absolute;
+    width: 300px;
+    /*position: absolute;
     right: 50px;
-    top: 100px;
+    top: 100px;*/
 }
 
 #root {
-    flex-flow: row;
-    align-content: stretch;
-    
+    margin-top: 100px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items:flex-start;
 }
 
 
 @media all and (min-width: 1880px){
     #main {
-        max-width: 1100px;
+        /*max-width: 1100px;
         min-width: 800px;
         margin: auto;
-        margin-right: 500px;
+        margin-right: 500px;*/
+        width: 1000px;
     }
 }
 @media all and (max-width: 1880px) {
-      #main{
-          margin-left: 300px;
-      }
+
 }
 
 #right-nav {
     background-color: #F0F0F0;
     min-height: 400px;
-    margin-top: 100px;
+    /*margin-top: 100px;*/
     padding: 30px;
 }
 
 #wrap {
-    margin: 100px;
+    /*margin: 100px;*/
+    padding: 0 50px;
 }
 
 .msg {
@@ -177,4 +181,123 @@ footer {
 
 #github-link {
     color: #00BCD4;
+}
+
+#left-nav {
+    
+}
+
+.block {
+    background-color: white;
+    border-radius: 5px;
+    box-shadow: 0px 0px 40px rgba(0,0,0,0.01)
+}
+
+#user-info {
+    /*background-color: #84FFFF;*/
+    height: 200px;
+}
+
+li {
+    list-style: none;
+}
+
+.author-avatar {
+    width: 75px;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: bottom;
+    /*box-shadow: 0px 0px 20px rgba(0,0,0,0.07);*/
+    /*border: solid 1px rgba(0,0,0,0.1);*/
+}
+
+.post {
+    padding: 30px;
+}
+
+.post .info-text {
+    display: inline-block;
+    vertical-align: bottom;
+    margin-left: 30px;
+}
+
+.author-name {
+    margin: 0;
+    font-size: 1.3em;
+    font-weight: 600;
+    display: block;
+    color: #00bcd4;
+}
+
+.post-time {
+    display: block;
+    font-size: 0.9em;
+    color: rgba(0,0,0,0.5);
+    margin-top: 10px;
+}
+
+.post-text {
+    margin-top: 20px;
+}
+
+.post-action {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 40px;
+    color: rgba(0,0,0,0.5);
+    font-size: 0.8em;
+}
+
+.post-action > .number {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.post-action > .icon {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.post-footer {
+    margin-top: 30px;
+}
+
+.post-action::before {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 30px;  /* Preferred icon size */
+    display: inline-block;
+    line-height: 1;
+    text-transform: none;
+    letter-spacing: normal;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr; 
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.post-like::before {
+    content: "favorite_border";
+}
+
+.post-comment::before {
+    content: "comment"
+}
+
+.post-forward::before {
+    content: "launch"
+}
+
+.author-info {
+    position: relative;
+}
+
+.button-post-expand {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 30px;
+    color: rgba(0,0,0,0.2);
 }
