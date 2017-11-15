@@ -8,6 +8,10 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="font/material-design-icons-3.0.1/material-icons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
+    <script src="script/lib/myQuery/myQuery.js"></script>
+    <script src="script/lib/HTMLTemplate/HTMLTemplate.js"></script>
+    <script src="script/lib/HTMLTemplate/ObserveList.js"></script>
+    <script src="script/script.js"></script>
 </head>
 
 <body>
@@ -76,30 +80,45 @@
             <div id="wrap">
                 <section id="content-top">
                     <div id="content-publish" class="block">
-                        <textarea id="post-textbox" class="textbox"></textarea>
+                        <div id="content-publish-header">
+                            <img id="publish-avatar" src="img/avatar/my-avatar.png">
+                            <div class="wrapper">
+                                <p id="content-publish-author">SardineFish</p>
+                                <a class="icon-text content-public" id="content-publish-privacy"></a>
+                            </div>
+                        </div>
+                        <textarea id="post-textbox" class="textbox" placeholder="Say something here..."></textarea>
+                        <ul id="content-publish-insert">
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-emoji">insert_emoticon</li>
+                            <li class="icon-button insert-buttons" id="button-insert-at">@</li>
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-img">insert_photo</li>
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-link">insert_link</li>
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-location">add_location</li>
+                        </ul>
+                        <i class="icon-button material-icons" id="button-send-post">send</i>
                     </div>
 
                 </section>
                 <section id="posts">
                     <ul>
-                        <li class="block post">
-                            <header class="author-info">
-                                <img class="author-avatar" src="img/avatar.png">
-                                <div class="info-text">
-                                    <p class="author-name">MyName</p>
-                                    <time class="post-time">Tue Nov 14 2017 10:37:47 GMT+0800</time>
+                        <template id="template-post">
+                            <li class="block post">
+                                <header class="author-info">
+                                    <img class="author-avatar" src="{{avatar}}">
+                                    <div class="info-text">
+                                        <p class="author-name">{{name}}</p>
+                                        <time class="post-time">{{time}}</time>
+                                    </div>
+                                    <i class="material-icons button-post-expand">expand_more</i>
+                                </header>
+                                <main class="post-text">{{text}}</main>
+                                <div class="post-footer">
+                                    <div class="post-like post-action icon-text">{{likeCount}}</div>
+                                    <div class="post-comment post-action icon-text">{{commentCount}}</div>
+                                    <div class="post-forward post-action icon-text">{{forwardCount}}</div>
                                 </div>
-                                <i class="material-icons button-post-expand">expand_more</i>
-                            </header>
-                            <main class="post-text">
-                                (╯‵□′)╯︵┻━┻
-                            </main>
-                            <div class="post-footer">
-                                <div class="post-like post-action">2333</div>
-                                <div class="post-comment post-action">1024</div>
-                                <div class="post-forward post-action">65536</div>
-                            </div>
-                        </li>
+                            </li>
+                        </template>
                     </ul>
                 </section>
             </div>

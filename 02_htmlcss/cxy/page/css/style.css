@@ -261,7 +261,7 @@ li {
     margin-top: 30px;
 }
 
-.post-action::before {
+.icon-text::before {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
@@ -314,6 +314,11 @@ li {
     line-height: 20px;
     resize: none;
     transition: height 0.5s;
+    margin-top: 10px;
+}
+#post-textbox::placeholder{
+    font-weight: 600;
+    color: rgba(0,0,0,0.3);
 }
 
 .textbox {
@@ -326,6 +331,7 @@ li {
 
 #content-publish {
     padding: 30px;
+    position: relative;
 }
 
 #logo-area {
@@ -345,3 +351,96 @@ textarea {
 }
 
 
+
+#publish-avatar {
+    width: 50px;
+    border-radius: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+#content-publish-header > .wrapper {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 10px;
+}
+
+#content-publish-author {
+    font-weight: 600;
+    color: rgba(0,0,0,0.75);
+    display: inline-block;
+    margin: 0;
+}
+
+#content-publish-privacy::before {
+    font-size: 1.2em;
+    vertical-align: text-bottom;
+    margin: 0;
+}
+#content-publish-privacy{
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+.content-private::after {
+    content: "Private";
+}
+.content-private::before {
+    content: "lock";
+}
+
+.content-public {
+    color: #00BCD4;
+}
+.content-public::before {
+    content: "lock_open"
+}
+.content-public::after {
+    content: "Public";
+}
+
+.content-private {
+    color: #FF5722;
+}
+
+#button-insert-at {
+    font-weight: bolder;
+    font-size: 24px;
+    line-height: 24px;
+}
+
+.icon-button {
+    transition: color 0.3s;
+    color: rgba(0,0,0,0.4);
+    cursor: pointer;
+    display: inline-block;
+    padding: 5px;
+}
+.icon-button:hover  {
+    color: #00BCD4;
+}
+
+#content-publish-insert {
+    margin: 10px 0 0 0;
+}
+
+#insert-img {
+    
+}
+
+.insert-buttons {
+    vertical-align: middle;
+    margin-left: 20px;
+}
+
+#button-send-post {
+    position: absolute;
+    font-size: 36px;
+    padding: 10px;
+    right: 20px;
+    bottom: 20px;
+    color: #80DEEA;
+}
+#button-send-post:hover {
+    color: #00BCD4;
+}
