@@ -10,7 +10,7 @@ body{
     color: rgba(0,0,0,0.4);
     padding: 10px 0 10px 30px;
     display: inline-block;
-    vertical-align: middle;
+    vertical-align: baseline;
 }
 
 #top {
@@ -26,11 +26,11 @@ body{
     background-color: white;
 }
 
-#author {
+#logo-author {
     display: inline-block;
     margin: 0;
     color: rgba(0,0,0,0.2);
-    vertical-align: bottom;
+    vertical-align: baseline;
     padding-bottom: 20px;
 }
 
@@ -58,6 +58,7 @@ body{
     /*border-right: solid 1px rgba(0,0,0,0.1);*/
     width: 300px;
     height: auto;
+    margin-left: 20px;
     /*padding-top: 100px;*/
     /*top: 0;
     left: 0;*/
@@ -67,6 +68,7 @@ body{
 
 #right {
     width: 300px;
+    margin-right: 20px;
     /*position: absolute;
     right: 50px;
     top: 100px;*/
@@ -78,23 +80,8 @@ body{
     justify-content: center;
     align-items:flex-start;
 }
-
-
-@media all and (min-width: 1880px){
-    #main {
-        /*max-width: 1100px;
-        min-width: 800px;
-        margin: auto;
-        margin-right: 500px;*/
-        width: 1000px;
-    }
-}
-@media all and (max-width: 1880px) {
-
-}
-
 #right-nav {
-    background-color: #F0F0F0;
+    margin-top: 10px;
     min-height: 400px;
     /*margin-top: 100px;*/
     padding: 30px;
@@ -183,7 +170,6 @@ footer {
 }
 
 #left-nav {
-    
 }
 
 .block {
@@ -194,7 +180,7 @@ footer {
 
 #user-info {
     /*background-color: #84FFFF;*/
-    height: 200px;
+    padding: 20px;
 }
 
 li {
@@ -206,18 +192,20 @@ li {
     border-radius: 100%;
     display: inline-block;
     vertical-align: bottom;
+    cursor: pointer;
     /*box-shadow: 0px 0px 20px rgba(0,0,0,0.07);*/
     /*border: solid 1px rgba(0,0,0,0.1);*/
 }
 
 .post {
     padding: 30px;
+    margin-top: 10px;
 }
 
 .post .info-text {
     display: inline-block;
     vertical-align: bottom;
-    margin-left: 30px;
+    margin-left: 20px;
 }
 
 .author-name {
@@ -233,6 +221,7 @@ li {
     font-size: 0.9em;
     color: rgba(0,0,0,0.5);
     margin-top: 10px;
+    cursor: default;
 }
 
 .post-text {
@@ -245,6 +234,10 @@ li {
     margin-left: 40px;
     color: rgba(0,0,0,0.5);
     font-size: 0.8em;
+    cursor: pointer;
+}
+.post-action::before {
+    font-size: 30px;
 }
 
 .post-action > .number {
@@ -265,7 +258,6 @@ li {
     font-family: 'Material Icons';
     font-weight: normal;
     font-style: normal;
-    font-size: 30px;  /* Preferred icon size */
     display: inline-block;
     line-height: 1;
     text-transform: none;
@@ -299,6 +291,7 @@ li {
     top: 0;
     font-size: 30px;
     color: rgba(0,0,0,0.2);
+    cursor: pointer;
 }
 
 #post-textbox {
@@ -313,7 +306,7 @@ li {
     box-sizing: border-box;
     line-height: 20px;
     resize: none;
-    transition: height 0.5s;
+    transition: height 0.3s;
     margin-top: 10px;
 }
 #post-textbox::placeholder{
@@ -337,7 +330,7 @@ li {
 #logo-area {
     max-width: 1000px;
     margin: auto;
-    padding-left: 50px;
+    padding-left: 10px;
     box-sizing: border-box;
 }
 
@@ -443,4 +436,180 @@ textarea {
 }
 #button-send-post:hover {
     color: #00BCD4;
+}
+
+#my-avatar {
+    width: 100px;
+    border-radius: 100%;
+}
+
+.male > #icon-female {
+    display: none;
+}
+.female > #icon-male {
+    display: none;
+}
+
+
+#my-gender {
+    font-style: normal;
+    font-weight: bolder;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+}
+
+#user-info-text {
+    margin-left: 20px;
+    
+}
+
+#my-nick-name {
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 5.6em;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+}
+
+#my-username {
+    color: #00BCD4;
+    font-size: 0.9em;
+}
+#my-username::before {
+    content: "@";
+}
+
+#name-gender {
+    margin: 5px 0;
+}
+
+#user-info-summary {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+#user-info-details a {
+    color: rgba(0,0,0,0.2);
+}
+#user-info a:hover {
+    color: #00BCD4;
+}
+
+#user-info-mail::before {
+    content: "email";
+}
+
+#user-info-details {
+    margin-top: 30px;
+}
+
+#user-info-details > .icon-text::before {
+    color: rgba(0,0,0,0.2);
+    margin-right: 10px;
+}
+
+#user-info-website::before {
+    content: "link";
+}
+
+#user-info-github {
+    height: 1em;
+}
+#user-info-github > .svg-icon{
+    margin-right: 5px;
+}
+
+
+.svg-icon {
+    display: inline-block;
+    vertical-align: middle;
+    height: 1em;
+}
+
+#user-info-details > li {
+    margin: 5px 0;
+}
+
+
+
+#main {
+    flex: auto 1;
+    max-width: 1000px;
+}
+@media all and (max-width: 1280px){
+    #right {
+        display: none;
+    }
+}
+@media all and (max-width: 1000px){
+    #nav-bar{
+        display: none;
+    }
+    #wrap{
+        padding: 0px 10px;
+    }
+    #left {
+        display: none;
+    }
+}
+@media all and (max-width: 600px){
+    #content-publish{
+        padding: 10px;
+    }
+    #button-send-post{
+        right: 0;
+        bottom: 0;
+    }
+    .post{
+        padding: 10px;
+    }
+    .post-action{
+        margin-left: 10px;
+        margin-right: 20px;
+    }
+}
+
+#content-top {
+}
+
+input {
+    flex: auto 1;
+    border: none 0px;
+    font-size: 1em;
+    font-family: inherit;
+    display: block
+}
+
+#search-block {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: stretch;
+    padding: 5px 10px;
+}
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration{
+    -webkit-appearance: none;
+}
+
+#search-text:focus {
+    border-bottom: solid 2px #00BCD4;
+}
+#search-text:focus ~ i {
+    color: #00BCD4;
+}
+#search-text::placeholder{
+    color: rgba(0,0,0,0.25);
+    font-weight: bold;
+}
+
+#search-text {
+    border-bottom: solid 2px transparent;
+    transition: border 0.1s;
 }

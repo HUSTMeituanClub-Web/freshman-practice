@@ -1,5 +1,4 @@
-﻿export {$};
-function $(element, selector)
+﻿function $(element, selector)
 {
     if (!element)
         return;
