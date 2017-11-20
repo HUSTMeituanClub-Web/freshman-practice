@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style type="text/css">
+        body{
+            padding:30px;
+        }
+        #box {
+            -webkit-perspective:500;
+            -webkit-perspective-origin:50%;
+        }
+        
+        #cube{
+            position: relative;
+            margin: 100px auto 0;
+            height: 400px;
+            width:400px;
+            -webkit-transition:-webkit-transform 2s linear;
+            -webkit-transform-style:preserve-3d;
+        }
+        .face{
+            position: absolute;
+            width:360px;
+            height:360px;
+            background-color: rgba(50,50,50,0.7);
+            text-align: center;
+            line-height:300px;
+            font-size: 200px;
+            color:white;
+            border: solid 1px red;
+        }
+        #cube .one{
+            -webkit-transform:translateZ(180px);
+        }
+        #cube .two{
+            -webkit-transform:rotateY(90deg) translateZ(180px); 
+        }
+        #cube .three{
+            -webkit-transform:rotateY(-90deg) translateZ(180px);
+        }
+        #cube .four{
+            -webkit-transform:rotateY(180deg) translateZ(180px);
+        }
+        #cube .five{
+            -webkit-transform:rotateX(90deg)
+                translateZ(180px);
+        }
+        #cube .six{
+            -webkit-transform:rotateX(-90deg) translateZ(180px);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box">
+        <div id="cube">
+            <div class="one face">1</div>
+            <div class="two face">2</div>
+            <div class="three face">3</div>
+            <div class="four face">4</div>
+            <div class="five face">5</div>
+            <div class="six face">6</div>
+        </div>
+    </div>
+    <p>使用方向键可切换</p>
+    <script type="text/javascript">
+var body = document.body,
+    xAngle = 0, yAngle = 0;
+body.onkeydown = function(event){
+    switch(event.keyCode) {
+        case 37:
+            yAngle -= 90;
+            break;
+        case 38:
+            xAngle +=90;
+            break;
+        case 39:
+            yAngle += 90;
+            break;
+        case 40:
+            xAngle -= 90;
+            break;
+    };
+    document.getElementById('cube')
+        .style.WebkitTransform = "rotateX("+xAngle+"deg) rotateY("+yAngle+"deg)";
+};
+    
+</script>
+</body>
+</html>
