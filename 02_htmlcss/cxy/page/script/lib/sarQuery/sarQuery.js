@@ -1,4 +1,10 @@
-﻿function $(element, selector)
+﻿/**
+ * 
+ * @param {Element | String} element
+ * @param {String} [selector]
+ * @returns {Array<Element>}
+ */
+function $(element, selector)
 {
     if (!element)
         return;
@@ -68,6 +74,40 @@
         else {
             for (var i = 0; i < result.length; i++) {
                 result[i].style.width = w + "px";
+            }
+        }
+    }
+    result.blur = function (listener)
+    {
+        if (!listener)
+        {
+            for (var i = 0; i < result.length; i++)
+            {
+                result[i].dispatchEvent(new Event("blur"));
+            }
+        }
+        else
+        {
+            for (var i = 0; i < result.length; i++)
+            {
+                result[i].addEventListener("blur", listener);
+            }
+        }
+    }
+    result.change = function (listener)
+    {
+        if (!listener)
+        {
+            for (var i = 0; i < result.length; i++)
+            {
+                result[i].dispatchEvent(new Event("change"));
+            }
+        }
+        else
+        {
+            for (var i = 0; i < result.length; i++)
+            {
+                result[i].addEventListener("change", listener);
             }
         }
     }
@@ -169,5 +209,22 @@
 
         }
     }
+    result.text = function(text)
+    {
+        if (result.length <= 0)
+            return "";    
+        if (text===undefined)
+        {
+            return result[0].innerText;
+        }
+        else
+        {
+            for (var i = 0; i < result.length; i++)
+            {
+                result[i].innerText = text;
+            }
+        }
+    }
     return result;
 }
+//export { $ };

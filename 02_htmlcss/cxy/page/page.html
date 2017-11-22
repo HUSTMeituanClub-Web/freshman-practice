@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link href="font/material-design-icons-3.0.1/material-icons.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-    <script src="script/lib/myQuery/myQuery.js"></script>
+    <script src="script/lib/sarQuery/sarQuery.js"></script>
     <script src="script/lib/HTMLTemplate/HTMLTemplate.js"></script>
     <script src="script/lib/HTMLTemplate/ObserveList.js"></script>
     <script src="script/script.js"></script>
@@ -115,14 +115,14 @@
                             </div>
                         </div>
                         <textarea id="post-textbox" class="textbox auto-height" placeholder="Say something here..."></textarea>
-                        <ul id="content-publish-insert">
+                        <ul id="content-publish-insert" onselectstart="return false;">
                             <li class="icon-button insert-buttons material-icons" id="button-insert-emoji">insert_emoticon</li>
                             <li class="icon-button insert-buttons" id="button-insert-at">@</li>
                             <li class="icon-button insert-buttons material-icons" id="button-insert-img">insert_photo</li>
                             <li class="icon-button insert-buttons material-icons" id="button-insert-link">insert_link</li>
                             <li class="icon-button insert-buttons material-icons" id="button-insert-location">add_location</li>
                         </ul>
-                        <i class="icon-button material-icons" id="button-send-post">send</i>
+                        <i class="icon-button material-icons" id="button-send-post" onselectstart="return false;">send</i>
                     </div>
 
                 </section>
@@ -141,6 +141,7 @@
                                 <main class="post-text">{{text}}</main>
                                 <div class="post-footer">
                                     <div class="post-like post-action icon-text">{{likeCount}}</div>
+                                    <i class="post-like-add">+1</i>
                                     <div class="post-comment post-action icon-text">{{commentCount}}</div>
                                     <div class="post-forward post-action icon-text">{{forwardCount}}</div>
                                 </div>

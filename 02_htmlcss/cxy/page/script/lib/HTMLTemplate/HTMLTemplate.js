@@ -85,6 +85,91 @@
         }
         return list;
     }
+    var EventJs = (function ()
+    {
+        function Event()
+        {
+            this.def = null;
+            this.handlers = ArrayList();
+        }
+        Event.prototype.invoke = function (args)
+        {
+            if (!args["handled"])
+                args.handled = false;
+            if (this.def)
+                this.def(args);
+            for (var i = 0; i < this.handlers.length; i++)
+            {
+                if (args.handled)
+                    return;
+                if (this.handlers[i])
+                    this.handlers[i](args);
+            }
+        }
+        Event.prototype.add = function (handler)
+        {
+
+            this.handlers.add(handler);
+        }
+        Event.prototype.remove = function (handler)
+        {
+            if (this.def == handler)
+                this.def = null;
+            this.handlers.remove(handler);
+        }
+
+        function EventManager()
+        {
+            this.events = {};
+            this.eventNames = ArrayList();
+        }
+        EventManager.prototype.register = function (name, event)
+        {
+            if (name == undefined || name == null)
+                throw new Error("A name of the event required.");
+            if (this.eventNames.indexOf(name) > 0)
+                throw new Error("Event existed.");
+            this.events[name] = event;
+            this.eventNames.add(name);
+        }
+        Event.EventManager = EventManager;
+
+        /**
+         * 
+         * @param {Object} obj 
+         * @param {String} name 
+         * @param {function} [handler] 
+         */
+        function defineEvent(obj, name, handler)
+        {
+            if (!obj)
+                throw new Error("An object required.");
+            if (name == undefined || name == null)
+                throw new Error("A name of the event required.");
+            if (!obj.eventManager)
+            {
+                obj.eventManager = new EventManager();
+
+            }
+
+            if (obj.eventManager.eventNames.contain(name))
+                throw new Error("Event existed.");
+            var event = new Event();
+            obj.eventManager.register(name);
+            Object.defineProperty(obj, name, {
+                get: function ()
+                {
+                    return event;
+                },
+                set: function (handler)
+                {
+                    event.def = handler;
+                }
+            })
+        }
+        Event.defineEvent = defineEvent;
+        return Event;
+    })();
     
     var globalTemplates = ArrayList();
     function Template(templateNode)
@@ -121,6 +206,10 @@
                 }
             }
         });
+        EventJs.defineEvent(this, "onItemAdd");
+        EventJs.defineEvent(this, "onItemRemove");
+        EventJs.defineEvent(this, "onItemInsert");
+        
         var tNode=document.createElement("div");
         tNode.innerHTML=templateNode.innerHTML;
         //alert(templateNode.childNodes.length)
@@ -184,6 +273,7 @@
             {
                     
                 items.add(new TemplateItem());
+                items[idx].dataSource = source[idx];
                 for (var i = 0; i < this.children.length; i++)
                 {
                     if (this.children[i] instanceof Template)
@@ -199,7 +289,6 @@
                         {
                             items[idx].add(rendered[j].nodes);
                         }
-                        
                     }
                     else
                     {
@@ -225,6 +314,7 @@
         else 
         {
             items.add(new TemplateItem());
+            items[0].dataSource = source;
             for (var i = 0; i < this.children.length; i++)
             {
                 if (this.children[i] instanceof Template)
@@ -288,6 +378,7 @@
                     var node=items[i].nodes[j];
                     template.parentNode.insertBefore(node,referNode);
                 }
+                template.onElementRendered.invoke(items[i]);
             }
         }
         template.addItem=function(item)
@@ -307,6 +398,7 @@
                 {
                     template.parentNode.insertBefore(item[i].nodes[j], referNode);
                 }
+                template.onElementRendered.invoke(item[i]);
             }
         }
         template.insertItem = function (item, index)
@@ -328,7 +420,8 @@
                 {
                     template.parentNode.insertBefore(item[i].nodes[j], referNode);
                 }
-                template.items.insert(item[i],index++);
+                template.items.insert(item[i], index++);
+                template.onElementRendered.invoke(item[i]);
             }
         }
         template.removeItem = function (index)
@@ -361,7 +454,7 @@
             
             var sourceItem=args.item;
             var item=template.template.render(sourceItem)[0];
-            template.insertItem(item,index);
+            template.insertItem(item, index);
         }
         template.onRemove=function(args)
         {
@@ -372,11 +465,13 @@
         {
             
         }
+        EventJs.defineEvent(template, "onElementRendered");
     }
     
     function TemplateItem()
     {
         this.nodes = ArrayList();
+        this.dataSource = null;
         var nodes=this.nodes;
         Object.defineProperty(this, "first", {
             get: function ()
@@ -389,11 +484,35 @@
             {
                 return nodes[nodes.length - 1];
             }
-        })
+        });
+        Object.defineProperty(this, "firstElement", {
+            get: function ()
+            {
+                for (var i = 0; i < nodes.length; i++)
+                {
+                    if (nodes[i].nodeName != "#text")
+                        return nodes[i];    
+                }
+            }
+        });
     }
     TemplateItem.prototype.add=function(node)
     {
         this.nodes.add(node);
+    }
+    TemplateItem.prototype.insertBefore = function (refNode)
+    {
+        for (var i = 0; i < this.nodes.length; i++)
+        {
+            refNode.parentNode.insertBefore(this.nodes[i], refNode);
+        }
+    }
+    TemplateItem.prototype.insertInto = function (parentNode)
+    {
+        for (var i = 0; i < this.nodes.length; i++)
+        {
+            parentNode.insertBefore(this.nodes[i], null);
+        }
     }
 
 
@@ -543,9 +662,9 @@
     {
         this.bind = "";
 
-        if (/\{\{([_0-9a-zA-Z]+)\}\}/.test(bindingText))
+        if (/\{\{([_0-9a-zA-Z\.]+)\}\}/.test(bindingText))
         {
-            this.bind = /\{\{([_0-9a-zA-Z]+)\}\}/.exec(bindingText)[1];
+            this.bind = /\{\{([_0-9a-zA-Z\.]+)\}\}/.exec(bindingText)[1];
         }
         else
         {
@@ -570,6 +689,15 @@
     //Init
     function Init(templateDOM)
     {
+        /*
+        var str = "";
+        for (var key in window)
+        {
+                str += key + "\r\n";
+
+
+        }
+        document.write(str);*/
         //Init specified template
         if (templateDOM)
         {

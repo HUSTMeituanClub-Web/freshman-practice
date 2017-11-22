@@ -1,13 +1,14 @@
-body{
+body {
     font-family: "Open Sans", sans-serif;
-    background: rgba(0,0,0,0.04);
+    background: rgba(0, 0, 0, 0.04);
     margin: 0;
     padding: 0;
 }
+
 #logo {
     font-size: 30px;
     font-weight: bold;
-    color: rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.4);
     padding: 10px 0 10px 30px;
     display: inline-block;
     vertical-align: baseline;
@@ -22,14 +23,14 @@ body{
     z-index: 100;
     top: 0;
     left: 0;
-    box-shadow: 0px 20px 50px -20px rgba(0,0,0,0.02);
+    box-shadow: 0px 20px 50px -20px rgba(0, 0, 0, 0.02);
     background-color: white;
 }
 
 #logo-author {
     display: inline-block;
     margin: 0;
-    color: rgba(0,0,0,0.2);
+    color: rgba(0, 0, 0, 0.2);
     vertical-align: baseline;
     padding-bottom: 20px;
 }
@@ -78,8 +79,10 @@ body{
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    align-items:flex-start;
+    align-items: flex-start;
+    margin-top: 10px;
 }
+
 #right-nav {
     margin-top: 10px;
     min-height: 400px;
@@ -93,10 +96,10 @@ body{
 }
 
 .msg {
-    color: rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.4);
 }
 
-.msg>.time {
+.msg > .time {
     margin-left: 20px;
 }
 
@@ -147,7 +150,7 @@ ul {
     padding: 20px;
     font-size: 14px;
     font-weight: 600;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
 }
 
 a {
@@ -162,20 +165,19 @@ footer {
 #copy-right {
     margin-top: 30px;
     text-align: center;
-    color: rgba(0,0,0,0.3)
+    color: rgba(0, 0, 0, 0.3)
 }
 
 #github-link {
     color: #00BCD4;
 }
 
-#left-nav {
-}
+#left-nav {}
 
 .block {
     background-color: white;
     border-radius: 5px;
-    box-shadow: 0px 0px 40px rgba(0,0,0,0.01)
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.01)
 }
 
 #user-info {
@@ -200,6 +202,8 @@ li {
 .post {
     padding: 30px;
     margin-top: 10px;
+    overflow: hidden;
+    box-sizing: content-box;
 }
 
 .post .info-text {
@@ -219,7 +223,7 @@ li {
 .post-time {
     display: block;
     font-size: 0.9em;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
     margin-top: 10px;
     cursor: default;
 }
@@ -232,10 +236,11 @@ li {
     display: inline-block;
     vertical-align: middle;
     margin-left: 40px;
-    color: rgba(0,0,0,0.5);
+    color: rgba(0, 0, 0, 0.5);
     font-size: 0.8em;
     cursor: pointer;
 }
+
 .post-action::before {
     font-size: 30px;
 }
@@ -252,6 +257,7 @@ li {
 
 .post-footer {
     margin-top: 30px;
+    position: relative;
 }
 
 .icon-text::before {
@@ -264,13 +270,16 @@ li {
     letter-spacing: normal;
     word-wrap: normal;
     white-space: nowrap;
-    direction: ltr; 
+    direction: ltr;
     vertical-align: middle;
     margin-right: 5px;
 }
 
 .post-like::before {
     content: "favorite_border";
+}
+.post-like{
+    transition: color 0.2s;
 }
 
 .post-comment::before {
@@ -290,12 +299,12 @@ li {
     right: 0;
     top: 0;
     font-size: 30px;
-    color: rgba(0,0,0,0.2);
+    color: rgba(0, 0, 0, 0.2);
     cursor: pointer;
 }
 
 #post-textbox {
-    
+
     overflow: hidden;
     font-size: 1em;
     min-height: 5em;
@@ -309,16 +318,17 @@ li {
     transition: height 0.3s;
     margin-top: 10px;
 }
-#post-textbox::placeholder{
+
+#post-textbox::placeholder {
     font-weight: 600;
-    color: rgba(0,0,0,0.3);
+    color: rgba(0, 0, 0, 0.3);
 }
 
 .textbox {
     padding: 5px 10px;
 }
 
-*:focus{
+*:focus {
     outline: none;
 }
 
@@ -360,7 +370,7 @@ textarea {
 
 #content-publish-author {
     font-weight: 600;
-    color: rgba(0,0,0,0.75);
+    color: rgba(0, 0, 0, 0.75);
     display: inline-block;
     margin: 0;
 }
@@ -370,7 +380,8 @@ textarea {
     vertical-align: text-bottom;
     margin: 0;
 }
-#content-publish-privacy{
+
+#content-publish-privacy {
     font-size: 0.9em;
     margin-left: 10px;
 }
@@ -378,6 +389,7 @@ textarea {
 .content-private::after {
     content: "Private";
 }
+
 .content-private::before {
     content: "lock";
 }
@@ -385,9 +397,11 @@ textarea {
 .content-public {
     color: #00BCD4;
 }
+
 .content-public::before {
     content: "lock_open"
 }
+
 .content-public::after {
     content: "Public";
 }
@@ -404,12 +418,13 @@ textarea {
 
 .icon-button {
     transition: color 0.3s;
-    color: rgba(0,0,0,0.4);
+    color: rgba(0, 0, 0, 0.4);
     cursor: pointer;
     display: inline-block;
     padding: 5px;
 }
-.icon-button:hover  {
+
+.icon-button:hover {
     color: #00BCD4;
 }
 
@@ -417,9 +432,7 @@ textarea {
     margin: 10px 0 0 0;
 }
 
-#insert-img {
-    
-}
+#insert-img {}
 
 .insert-buttons {
     vertical-align: middle;
@@ -434,6 +447,7 @@ textarea {
     bottom: 20px;
     color: #80DEEA;
 }
+
 #button-send-post:hover {
     color: #00BCD4;
 }
@@ -446,6 +460,7 @@ textarea {
 .male > #icon-female {
     display: none;
 }
+
 .female > #icon-male {
     display: none;
 }
@@ -462,7 +477,7 @@ textarea {
 
 #user-info-text {
     margin-left: 20px;
-    
+
 }
 
 #my-nick-name {
@@ -479,6 +494,7 @@ textarea {
     color: #00BCD4;
     font-size: 0.9em;
 }
+
 #my-username::before {
     content: "@";
 }
@@ -494,8 +510,9 @@ textarea {
 }
 
 #user-info-details a {
-    color: rgba(0,0,0,0.2);
+    color: rgba(0, 0, 0, 0.2);
 }
+
 #user-info a:hover {
     color: #00BCD4;
 }
@@ -509,7 +526,7 @@ textarea {
 }
 
 #user-info-details > .icon-text::before {
-    color: rgba(0,0,0,0.2);
+    color: rgba(0, 0, 0, 0.2);
     margin-right: 10px;
 }
 
@@ -520,7 +537,8 @@ textarea {
 #user-info-github {
     height: 1em;
 }
-#user-info-github > .svg-icon{
+
+#user-info-github > .svg-icon {
     margin-right: 5px;
 }
 
@@ -541,41 +559,43 @@ textarea {
     flex: auto 1;
     max-width: 1000px;
 }
-@media all and (max-width: 1280px){
+
+@media all and (max-width: 1280px) {
     #right {
         display: none;
     }
 }
-@media all and (max-width: 1000px){
-    #nav-bar{
+
+@media all and (max-width: 1000px) {
+    #nav-bar {
         display: none;
     }
-    #wrap{
+    #wrap {
         padding: 0px 10px;
     }
     #left {
         display: none;
     }
 }
-@media all and (max-width: 600px){
-    #content-publish{
+
+@media all and (max-width: 600px) {
+    #content-publish {
         padding: 10px;
     }
-    #button-send-post{
+    #button-send-post {
         right: 0;
         bottom: 0;
     }
-    .post{
+    .post {
         padding: 10px;
     }
-    .post-action{
+    .post-action {
         margin-left: 10px;
         margin-right: 20px;
     }
 }
 
-#content-top {
-}
+#content-top {}
 
 input {
     flex: auto 1;
@@ -591,25 +611,59 @@ input {
     align-items: stretch;
     padding: 5px 10px;
 }
+
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
-input[type="search"]::-webkit-search-results-decoration{
+input[type="search"]::-webkit-search-results-decoration {
     -webkit-appearance: none;
 }
 
 #search-text:focus {
     border-bottom: solid 2px #00BCD4;
 }
+
 #search-text:focus ~ i {
     color: #00BCD4;
 }
-#search-text::placeholder{
-    color: rgba(0,0,0,0.25);
+
+#search-text::placeholder {
+    color: rgba(0, 0, 0, 0.25);
     font-weight: bold;
 }
 
 #search-text {
     border-bottom: solid 2px transparent;
     transition: border 0.1s;
+}
+
+.liked::before {
+    color: #FF80AB;
+    transition: color 0.2s;
+    content: "favorite";
+}
+.liked{
+    color: #F8BBD0;
+}
+
+.post-like-add {
+    position: absolute;
+    font-style: normal;
+    font-size: 0.5em;
+    animation-duration: 0.3s;
+    opacity: 0;
+    color: #F8BBD0;
+}
+.liked ~ .post-like-add{
+    animation-name: post-like-add-anim;
+}
+@keyframes post-like-add-anim{
+    from{
+        top: 0;
+        opacity: 0;
+    }
+    to{
+        top: -10px;
+        opacity: 1;
+    }
 }
