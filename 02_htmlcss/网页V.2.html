@@ -1,0 +1,151 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        
+        <style type="text/css">
+            body{
+                background: lightblue;
+                background-size: cover;
+            }
+            a:hover{text-decoration: underline;}
+            #header{
+                position:fixed;
+                top:0;
+                left:220px;
+                width:1200px;
+                height:30px;
+                font-size:30px;
+                color: blueviolet;
+                text-align: center;
+                padding:30px;
+                font-style: italic;
+                background-color: floralwhite;
+            }
+            
+            #nav{
+                position:absolute;
+                left:20px;
+                width:100px;
+                height:600px;
+                background-color: white;
+                text-shadow: 5px 5px 5px #9966CC;
+                line-height: 40px;
+                padding:50px;
+                font-style: oblique;
+            }
+            .color1{
+                font-size: 20px;
+                color:dark;
+                text-decoration: none;
+            }
+            .color2{
+                font-size:30px;
+                color: fuchsia;
+                text-decoration: none;
+            }
+            .color3{
+                color: #99FF99;
+                text-decoration: none;
+            }
+            #section{
+                position: relative;
+                top:90px;
+                left:260px;
+                background-color: white;
+                height: 200px;
+                width:1100px;
+                font-size: 20px;
+                line-height: normal;
+            }
+            #offside{
+                position:fixed;
+                right: 10px;
+                top:90px;
+                width: 155px;
+                height:200px;
+                background-color:deeppink;
+                font-style:italic;
+                font-size:30px;
+                font-weight: 520;
+                line-height: inherit;
+            }
+            #detail{
+                position: fixed;
+                right: 10px;
+                bottom: 5px;
+                background-color: azure;
+                font-style: oblique;
+                font-weight: 800;
+                font-size: 20px;
+                color:cornflowerblue;
+                padding:5px;
+                opacity: 0.6;
+            }
+            #footer{
+                position: fixed;
+                bottom:5px;
+                text-align: center;
+                width:100%;
+                font-size: 40px;
+                opacity: 0.4;
+                color: darkorchid;
+            }
+            #show{
+                position:relative;
+                top: 200px;
+                left: 260px;
+                font-size: 30px;
+                background-color: aliceblue;
+                width: 1080px;
+                padding: 10px;
+            }
+            #comments{
+                width:100%;
+                height: 100%;
+                font-size: 30px;
+                background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjp7ifUXHwSinDVL9xU6UwNxWukMLZpuPTcj-A-1uQpgn92Nm7");
+                background-size: 50% 100%;
+                color: black;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="header">YOUR Hompage</div>
+        <div id="nav">
+            <h class=color2>女神</h>
+            <p></p>
+            <li><a class = color1 href="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/xiaoruidekongjian/pic/item/bc5040acce9f21164a36d651.jpg">雏田</a></li>
+            <p></p>
+            <li><a class = color1 href="http://upload-images.jianshu.io/upload_images/3593032-94ec47c3720bddc3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/720/q/50">面码</a></li>
+            <p></p>
+            <li><a class = color1 href="http://mh.sfacg.com/Logo/201103/11bae901-fa02-4740-a553-0b107f4ec36a.jpg">初音</a></li>
+            <p></p>
+            <li><a class = color1 href="http://i1.17173cdn.com/2fhnvk/YWxqaGBf/cms3/SyMtunbkbFknxtv.jpg">瑞雯</a></li>   
+        </div>
+        <div id = "section">
+            <p>Please enter what you want to say:</p>
+            <textarea id="comments" row = "10" cols = "150" name="comments" wrap="hard"></textarea>
+            <button type="button" onclick="myFunction">Enter to finish!</button>
+        </div>
+        <div id= "show">
+            tyjn
+        </div>
+        <div id = "offside" >
+            <p> <a class="color3" href="https://github.com/Hyuga-Hinata">my github</a></p>
+            <p><a class="color3" href="https://www.google.com/search?biw=1536&bih=759&tbm=isch&sa=1&ei=DcL3WcGLOKW4jAPA4LToCw&q=%E9%9B%8F%E7%94%B0%E7%BE%8E%E5%9B%BE&oq=%E9%9B%8F%E7%94%B0%E7%BE%8E%E5%9B%BE&gs_l=psy-ab.3...1580.10608.0.10753.19.16.3.0.0.0.394.1857.2-5j2.7.0....0...1.1j4.64.psy-ab..11.4.458...0i12i24k1.0.brArp-TVUOY#imgrc=qhtOsJ6z8FKLSM:">my love</a></p>
+        </div>
+        <div id = "detail">
+            <p>welcome to your homepage</p>
+        </div>
+        <div id = "footer">
+            <p>Your homepage is very beautiful!23333!</p>
+        </div>
+        <script type="text/javascript">
+            function myFunction()
+            {
+                var x=document.getElementById("comments").value;
+                document.getElementById("show").innerHTML= x;
+            }
+        </script>
+    </body>
+</html>
