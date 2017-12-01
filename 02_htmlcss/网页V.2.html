@@ -1,15 +1,17 @@
 <!DOCTYPE HTML>
 <html>
-    <head>
-        
+    <head> 
         <style type="text/css">
             body{
-                background: lightblue;
+                position:absolute;
+                height: 100%;
+                width:99%;
+                background: #FFCCFF;
                 background-size: cover;
             }
             a:hover{text-decoration: underline;}
             #header{
-                position:fixed;
+                position:absolute;
                 top:0;
                 left:220px;
                 width:1200px;
@@ -21,14 +23,13 @@
                 font-style: italic;
                 background-color: floralwhite;
                 z-index: 2;
-                opacity:0.7;         }
-            
+                opacity:0.7;         
+            }
             #nav{
                 position:absolute;
-                left:20px;
                 width:100px;
                 height:600px;
-                background-color: white;
+                background-color: #CCCCFF;
                 text-shadow: 5px 5px 5px #9966CC;
                 line-height: 40px;
                 padding:50px;
@@ -45,8 +46,11 @@
                 text-decoration: none;
             }
             .color3{
-                color: #99FF99;
+                color: #996666;
                 text-decoration: none;
+                font-style: normal;
+                font-size:40px;
+                font-family: "华文行楷";
             }
             #section{
                 position: relative;
@@ -61,14 +65,17 @@
             #offside{
                 position:absolute;
                 right: 10px;
-                top:90px;
-                width: 155px;
-                height:200px;
-                background-color:deeppink;
-                font-style:italic;
-                font-size:30px;
+                top: 90px;
+                width: 140px;
+                height: 190px;
+                padding: 5px;
+                background-color: white;
+                opacity: 0.5;
+                font-style: italic;
+                font-size: 30px;
                 font-weight: 520;
                 line-height: inherit;
+                text-align: center;
             }
             #detail{
                 position: fixed;
@@ -90,7 +97,7 @@
                 width:800px;
                 padding:0;
                 font-size: 40px;
-                opacity: 0.4;
+                opacity: 0.2;
                 color: darkorchid;
             }
             #show{
@@ -101,6 +108,14 @@
                 background-color: aliceblue;
                 width: 1080px;
                 padding: 10px;
+                word-wrap: break-word; 
+                word-break: normal;
+                color:#9999FF;
+                line-height: 40px;
+                font-family:"华文行楷";
+            }
+            #wl{
+                font-family: "宋体";
             }
             #comments{
                 width:100%;
@@ -123,7 +138,7 @@
             <p></p>
             <li><a class = color1 href="http://mh.sfacg.com/Logo/201103/11bae901-fa02-4740-a553-0b107f4ec36a.jpg">初音</a></li>
             <p></p>
-            <li><a class = color1 href="http://i1.17173cdn.com/2fhnvk/YWxqaGBf/cms3/SyMtunbkbFknxtv.jpg">瑞雯</a></li>   
+            <li><a class = color1 href="http://i1.17173cdn.com/2fhnvk/YWxqaGBf/cms3/SyMtunbkbFknxtv.jpg">瑞雯</a></li>
         </div>
         <div id = "section">
             <p>Please enter what you want to say:</p>
@@ -131,24 +146,45 @@
             <button type="button" onclick="myFunction()">Enter to finish!</button>
         </div>
         <div id= "show">
-            Your information:
+            <div id="wl">Your information:</div>
+        <div>
+            <ul>
+                <li>据说世界上有两种女人是让你爱的，一种是让你最快乐的，一种是让你最困扰的。</li>
+                <li>他会再无忧虑也再无恐惧，四季转换，岁月静好。许多年后他们要是有机会还能相逢一笑，这可能是他们最好的结果。</li>
+                <li>有些时间点错过一次，就好比错过了一生。</li>
+                <li>后来那么悲伤，只是因为相遇的时候那么美，如果悲剧不能逆转，那么你在故事开头所体会到的欢乐，最后都要用双倍的悲伤来偿还。 </li>
+                <li>世界上有两万个你一见钟情的人，但有可能你一生中一个也遇不到。</li>
+            </ul>
+        </div>
         </div>
         <div id = "offside" >
             <p> <a class="color3" href="https://github.com/Hyuga-Hinata">my github</a></p>
             <p><a class="color3" href="https://www.google.com/search?biw=1536&bih=759&tbm=isch&sa=1&ei=DcL3WcGLOKW4jAPA4LToCw&q=%E9%9B%8F%E7%94%B0%E7%BE%8E%E5%9B%BE&oq=%E9%9B%8F%E7%94%B0%E7%BE%8E%E5%9B%BE&gs_l=psy-ab.3...1580.10608.0.10753.19.16.3.0.0.0.394.1857.2-5j2.7.0....0...1.1j4.64.psy-ab..11.4.458...0i12i24k1.0.brArp-TVUOY#imgrc=qhtOsJ6z8FKLSM:">my love</a></p>
         </div>
         <div id = "detail">
-            <p>welcome to your homepage</p>
+            <p>  welcome to <br> your homepage</p>
         </div>
         <div id = "footer">
-            Your homepage is very beautiful!23333!
+            Your homepage is very beautiful!
         </div>
         <script type="text/javascript">
+            
             function myFunction()
             {
                 var x=document.getElementById("comments").value;
-                document.getElementById("show").innerHTML= x;
+                document.getElementById("wl").innerHTML= x;
             }
+            /*function myFunction()
+            {
+                var para=document.createElement("div");
+                var x=getElementById("comments").value;
+                var node=document.createTextNode(x);
+                
+                para.appendChild(node);
+                
+                var element=document.getElementById("show");
+                element.appendChild(para);
+            }*/
         </script>
     </body>
 </html>
