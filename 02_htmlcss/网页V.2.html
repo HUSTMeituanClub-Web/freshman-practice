@@ -6,8 +6,9 @@
                 position:absolute;
                 height: 100%;
                 width:99%;
-                background: #FFCCFF;
+                background: white;
                 background-size: cover;
+                background-image: url(http://s.doyo.cn/img/50/ac/77ec9e9e78da1600003f.jpg);
             }
             a:hover{text-decoration: underline;}
             #header{
@@ -15,42 +16,44 @@
                 top:0;
                 left:220px;
                 width:1200px;
-                height:30px;
-                font-size:30px;
-                color: blueviolet;
+                height:50px;
+                font-size:50px;
+                color: black;
                 text-align: center;
-                padding:30px;
-                font-style: italic;
-                background-color: floralwhite;
-                z-index: 2;
-                opacity:0.7;         
+                padding:20px;
+                font-family: "Curlz MT";
+                opacity: 0.7;
+                /*z-index: 2;*/
             }
             #nav{
                 position:absolute;
                 width:100px;
                 height:600px;
-                background-color: #CCCCFF;
+                text-align: center;
                 text-shadow: 5px 5px 5px #9966CC;
                 line-height: 40px;
                 padding:50px;
-                font-style: oblique;
+                font-style: normal;
+                font-family: "华文行楷";
+                opacity: 0.7;
             }
             .color1{
-                font-size: 20px;
-                color:dark;
+                font-size: 30px;
+                color:cornflowerblue;
                 text-decoration: none;
             }
             .color2{
-                font-size:30px;
-                color: fuchsia;
+                font-size:50px;
+                color: cornflowerblue;
                 text-decoration: none;
+                font-style:normal;
             }
             .color3{
-                color: #996666;
+                color: #000033;
                 text-decoration: none;
                 font-style: normal;
                 font-size:40px;
-                font-family: "华文行楷";
+                font-family: "Curlz MT";
             }
             #section{
                 position: relative;
@@ -61,6 +64,7 @@
                 width:1100px;
                 font-size: 20px;
                 line-height: normal;
+                opacity: 0.7;
             }
             #offside{
                 position:absolute;
@@ -84,10 +88,11 @@
                 background-color: azure;
                 font-style: oblique;
                 font-weight: 800;
-                font-size: 20px;
+                font-size: 30px;
                 color:cornflowerblue;
                 padding:5px;
                 opacity: 0.6;
+                font-family: "Gigi";
             }
             #footer{
                 position: fixed;
@@ -102,17 +107,19 @@
             }
             #show{
                 position:relative;
+                margin: 20px;
                 top: 200px;
                 left: 220px;
-                font-size: 30px;
-                background-color: aliceblue;
+                font-size: 20px;
+                background-color: ghostwhite;
                 width: 1080px;
                 padding: 10px;
                 word-wrap: break-word; 
                 word-break: normal;
-                color:#9999FF;
+                color:#9900CC;
                 line-height: 40px;
                 font-family:"华文行楷";
+                opacity: 0.6;
             }
             #wl{
                 font-family: "宋体";
@@ -128,10 +135,11 @@
         </style>
     </head>
     <body>
-        <div id="header">YOUR Hompage</div>
+        <div id="header">Your Hompage</div>
         <div id="nav">
             <h class=color2>女神</h>
             <p></p>
+            <ul>
             <li><a class = color1 href="https://gss0.baidu.com/7LsWdDW5_xN3otqbppnN2DJv/xiaoruidekongjian/pic/item/bc5040acce9f21164a36d651.jpg">雏田</a></li>
             <p></p>
             <li><a class = color1 href="http://upload-images.jianshu.io/upload_images/3593032-94ec47c3720bddc3.jpeg?imageMogr2/auto-orient/strip%7CimageView2/2/w/720/q/50">面码</a></li>
@@ -139,23 +147,24 @@
             <li><a class = color1 href="http://mh.sfacg.com/Logo/201103/11bae901-fa02-4740-a553-0b107f4ec36a.jpg">初音</a></li>
             <p></p>
             <li><a class = color1 href="http://i1.17173cdn.com/2fhnvk/YWxqaGBf/cms3/SyMtunbkbFknxtv.jpg">瑞雯</a></li>
+            </ul>
         </div>
         <div id = "section">
-            <p>Please enter what you want to say:</p>
+            <div class="color3">Please enter what you want to say:</div>
             <textarea id="comments" row = "10" cols = "150" name="comments" wrap="hard"></textarea>
             <button type="button" onclick="myFunction()">Enter to finish!</button>
         </div>
         <div id= "show">
             <div id="wl">Your information:</div>
-        <div>
-            <ul>
+        <ul id="ul">
+            <div id= "repeat">
                 <li>据说世界上有两种女人是让你爱的，一种是让你最快乐的，一种是让你最困扰的。</li>
                 <li>他会再无忧虑也再无恐惧，四季转换，岁月静好。许多年后他们要是有机会还能相逢一笑，这可能是他们最好的结果。</li>
                 <li>有些时间点错过一次，就好比错过了一生。</li>
                 <li>后来那么悲伤，只是因为相遇的时候那么美，如果悲剧不能逆转，那么你在故事开头所体会到的欢乐，最后都要用双倍的悲伤来偿还。 </li>
                 <li>世界上有两万个你一见钟情的人，但有可能你一生中一个也遇不到。</li>
-            </ul>
-        </div>
+            </div>
+        </ul>
         </div>
         <div id = "offside" >
             <p> <a class="color3" href="https://github.com/Hyuga-Hinata">my github</a></p>
@@ -169,22 +178,41 @@
         </div>
         <script type="text/javascript">
             
-            function myFunction()
+            /*function myFunction()
             {
                 var x=document.getElementById("comments").value;
                 document.getElementById("wl").innerHTML= x;
-            }
-            /*function myFunction()
+            }*/
+            function myFunction()
             {
                 var para=document.createElement("div");
-                var x=getElementById("comments").value;
+                
+                var x=document.getElementById("comments").value;
+                
                 var node=document.createTextNode(x);
                 
                 para.appendChild(node);
                 
-                var element=document.getElementById("show");
+                var element=document.getElementById("wl");
                 element.appendChild(para);
-            }*/
+                
+                /*var w=document.getElementById("repeat");
+                var ul=document.getElementById("ul");
+                
+                ul.onscroll=function(){
+                    if(ul.scrollHeight-ul.scrollTop-90<30){
+                        load(w,ul);
+                    }
+                }
+                function load(w,ul){
+                    var html="";
+                    html+=w;
+                    
+                    ul.innerHTML=ul.innerHTML+html;
+                }*/   /*这个好像又错了。。。*/
+                
+                
+            }
         </script>
     </body>
 </html>
