@@ -183,8 +183,12 @@
                 var x=document.getElementById("comments").value;
                 document.getElementById("wl").innerHTML= x;
             }*/
+            
             function myFunction()
             {
+                var element=document.getElementById("wl");
+                var creat=document.createElement("p");
+                element.appendChild(creat);
                 var para=document.createElement("div");
                 
                 var x=document.getElementById("comments").value;
@@ -193,8 +197,8 @@
                 
                 para.appendChild(node);
                 
-                var element=document.getElementById("wl");
-                element.appendChild(para);
+                var first=element.firstChild;
+                element.insertBefore(para,first);
                 
                 /*var w=document.getElementById("repeat");
                 var ul=document.getElementById("ul");
