@@ -1,0 +1,104 @@
+*{
+    font-family: 华文新魏;
+}
+body{
+    margin: 70px;
+    padding: 20px;
+    background: #1FA2FF;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #A6FFCB, #12D8FA, #1FA2FF); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+div#header{
+    height: 100px;
+    background-color:transparent;
+    margin-bottom: 30px;
+    padding: 5px;
+    text-align: justify;
+    font-size:30px;
+}
+div#left{
+    float: left;
+    margin-top: 200px;
+    width: 250px;
+    height: 500px;
+    background-color:transparent;
+    font-size: 30px;
+    text-align: left;
+}
+div#right{
+    float: right;
+    width: 400px;
+    margin-top: 200px;
+    height: 1100px;
+    background-color:transparent;
+    font-size: 20px;
+}
+div#middle{
+    padding: 200px 500px 50px 300px;
+    margin: 20px;
+    background-color: transparent;
+    height: 2000px;
+    width: inherit;
+}
+.field{
+    height: 100px;
+    width: 400px;
+    padding: 5px 5px 5px;
+    background-color: transparent;
+    font-size: 40px;
+}
+#message{
+    width: 550px;
+    background-color: transparent;
+    font-size: large;
+    height: 100px;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.button{
+    position: relative;
+    color: black;
+    width: 200px;
+    height: 250px;
+    font-size: 20px;
+    float: inherit;
+}
+.spotlights{
+    margin-top:100px ;
+    height: 100px;
+    width: 600px;
+    padding: 5px 5px 5px;
+    background-color: transparent;
+    font-size: 30px;
+}
+.action{
+    position: relative;
+    color: black;
+    width: 100px;
+    height: 250px;
+    font-size: 20px;
+    float: inherit;
+}
+.link{
+    color: black;
+}
+#spinner{
+    position: fixed;
+    top: 20px;
+    left: 40%;
+    display: block;
+    color: red;
+    font-weight: 900;
+    background-color: rgba(80, 80, 90, 0.22);
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border-radius: 15px;
+}
+div#footer{
+    clear: both;
+    background-color: transparent;
+    text-align: center;
+    margin-top: 100px;
+}
