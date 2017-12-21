@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>A HTML</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="font/material-design-icons-3.0.1/material-icons.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <script src="script/lib/sarQuery/sarQuery.js"></script>
+    <script src="script/lib/HTMLTemplate/HTMLTemplate.js"></script>
+    <script src="script/lib/HTMLTemplate/ObserveList.js"></script>
+    <script src="script/script.js"></script>
+</head>
+
+<body>
+    <header id="top">
+        <div id="logo-area">
+            <div id="logo">A HTML</div>
+            <p id="logo-author">Created by CXY</p>
+        </div>
+        <nav id="nav-bar">
+            <ol>
+                <li class="viewing">
+                    <a>Home</a>
+                </li>
+                <li>
+                    <a>Source code</a>
+                </li>
+                <li>
+                    <a>License</a>
+                </li>
+                <li>
+                    <a>Documentation</a>
+                </li>
+                <li>
+                    <a>About</a>
+                </li>
+                <li>
+                    <a>More</a>
+                </li>
+            </ol>
+        </nav>
+    </header>
+    <div id="root">
+        <div id="left">
+            <div class="block" id="user-info">
+                <div id="user-info-summary">
+                    
+                    <img id="my-avatar" src="img/avatar/my-avatar.png">
+                    <div id="user-info-text">
+                        <p id="name-gender">
+                            <span id="my-nick-name">SardineFish</span>
+                            <i class="male" id="my-gender">
+                                <svg id="icon-female" viewBox="0 0 24 24">
+                                    <path fill="#F8BBD0" d="M12,4A6,6 0 0,1 18,10C18,12.97 15.84,15.44 13,15.92V18H15V20H13V22H11V20H9V18H11V15.92C8.16,15.44 6,12.97 6,10A6,6 0 0,1 12,4M12,6A4,4 0 0,0 8,10A4,4 0 0,0 12,14A4,4 0 0,0 16,10A4,4 0 0,0 12,6Z" />
+                                </svg>
+                                <svg id="icon-male" viewBox="0 0 24 24">
+                                    <path fill="#81D4FA" d="M9,9C10.29,9 11.5,9.41 12.47,10.11L17.58,5H13V3H21V11H19V6.41L13.89,11.5C14.59,12.5 15,13.7 15,15A6,6 0 0,1 9,21A6,6 0 0,1 3,15A6,6 0 0,1 9,9M9,11A4,4 0 0,0 5,15A4,4 0 0,0 9,19A4,4 0 0,0 13,15A4,4 0 0,0 9,11Z" />
+                                </svg>
+                            </i>
+                        </p>
+                        <a id="my-username">sardineeefish</a>
+                    </div>
+                </div>
+                <ul id="user-info-details">
+                    <li class="icon-text" id="user-info-mail"><a>me@sardinefish.com</a></li>
+                    <li class="icon-text" id="user-info-website"><a>www.sardinefish.com</a></li>
+                    <li id="user-info-github">
+                        <svg class="svg-icon" viewBox="0 0 24 24">
+                            <path fill="rgba(0,0,0,0.25)" d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58 9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,17.97C5.68,16.81 5.03,16.5 5.03,16.5C4.12,15.88 5.1,15.9 5.1,15.9C6.1,15.97 6.63,16.93 6.63,16.93C7.5,18.45 8.97,18 9.54,17.76C9.63,17.11 9.89,16.67 10.17,16.42C7.95,16.17 5.62,15.31 5.62,11.5C5.62,10.39 6,9.5 6.65,8.79C6.55,8.54 6.2,7.5 6.75,6.15C6.75,6.15 7.59,5.88 9.5,7.17C10.29,6.95 11.15,6.84 12,6.84C12.85,6.84 13.71,6.95 14.5,7.17C16.41,5.88 17.25,6.15 17.25,6.15C17.8,7.5 17.45,8.54 17.35,8.79C18,9.5 18.38,10.39 18.38,11.5C18.38,15.32 16.04,16.16 13.81,16.41C14.17,16.72 14.5,17.33 14.5,18.26C14.5,19.6 14.5,20.68 14.5,21C14.5,21.27 14.66,21.59 15.17,21.5C19.14,20.16 22,16.42 22,12A10,10 0 0,0 12,2Z" />
+                        </svg>
+                        <a>github.com/SardineFish</a>
+                    </li>
+                </ul>
+            </div>
+            <nav class="block" id="left-nav">
+                <ul>
+                    <li class="item nav-extended">
+                        <a class="link">html</a>
+                        <ul>
+                            <li class="item nav-extended">
+                                <a class="link">head</a>
+                                <ul>
+                                    <li class="item"><a class="link">title</a></li>
+                                    <li class="item"><a class="link">meta</a></li>
+                                    <li class="item"><a class="link">meta</a></li>
+                                    <li class="item"><a class="link">link</a></li>
+                                    <li class="item"><a class="link">link</a></li>
+                                </ul>
+                            </li>
+                            <li class="item nav-extended">
+                                <a class="link">body</a>
+                                <ul>
+                                    <li class="item"><a class="link">header</a></li>
+                                    <li class="item"><a class="link">div</a></li>
+                                    <li class="item"><a class="link">footer</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main id="main">
+            <div id="wrap">
+                <section id="content-top">
+                    <div id="content-publish" class="block">
+                        <div id="content-publish-header">
+                            <img id="publish-avatar" src="img/avatar/my-avatar.png">
+                            <div class="wrapper">
+                                <p id="content-publish-author">SardineFish</p>
+                                <a class="icon-text content-public" id="content-publish-privacy"></a>
+                            </div>
+                        </div>
+                        <textarea id="post-textbox" class="textbox auto-height" placeholder="Say something here..."></textarea>
+                        <ul id="content-publish-insert" onselectstart="return false;">
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-emoji">insert_emoticon</li>
+                            <li class="icon-button insert-buttons" id="button-insert-at">@</li>
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-img">insert_photo</li>
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-link">insert_link</li>
+                            <li class="icon-button insert-buttons material-icons" id="button-insert-location">add_location</li>
+                        </ul>
+                        <i class="icon-button material-icons" id="button-send-post" onselectstart="return false;">send</i>
+                    </div>
+
+                </section>
+                <section id="posts">
+                    <ul>
+                        <template id="template-post">
+                            <li class="block post" onselectstart="return false;">
+                                <header class="author-info">
+                                    <img class="author-avatar" src="{{avatar}}">
+                                    <div class="info-text">
+                                        <a class="author-name">{{name}}</a>
+                                        <time class="post-time">{{time}}</time>
+                                    </div>
+                                    <i class="material-icons button-post-expand">expand_more</i>
+                                </header>
+                                <main class="post-text">{{text}}</main>
+                                <div class="post-footer">
+                                    <div class="post-like post-action icon-text">{{likeCount}}</div>
+                                    <i class="post-like-add">+1</i>
+                                    <div class="post-comment post-action icon-text">{{commentCount}}</div>
+                                    <div class="post-forward post-action icon-text">{{forwardCount}}</div>
+                                </div>
+                            </li>
+                        </template>
+                    </ul>
+                </section>
+            </div>
+        </main>
+        <div id="right">
+            <div id="search-block" class="block">
+                <input class="textbox" id="search-text" type="search" placeholder="Search">
+                <i class="icon-button material-icons">search</i>
+            </div>
+            <div class="block" id="right-nav">
+                <p id="right-nav-title">Reference</p>
+                <nav>
+                    <ul>
+                        <li class="right-nav-item">
+                            <a>What is HTML</a>
+                        </li>
+                        <li class="right-nav-item">
+                            <a>How to write HTML</a>
+                        </li>
+                        <li class="right-nav-item">
+                            <a>CSS ???</a>
+                        </li>
+                        <li class="right-nav-item">
+                            <a>Javascript !!!</a>
+                        </li>
+                        <li class="right-nav-item">
+                            <a>PHP is the best language !</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div id="copy-right">
+            <p>Copyright © 2017 SardineFish, All Rights Reserved</p>
+            <p>GitHub <a id="github-link" href="https://github.com/SardineFish">https://github.com/SardineFish</a></p>
+        </div>
+    </footer>
+</body>
+
+</html>
