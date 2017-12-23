@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>贪吃蛇</title>
+        <style>
+            #canvas{
+                box-shadow: 0 5px 40px black;
+            }
+        </style>
+    </head>
+    <body>
+        <canvas id = "canvas" width ="800" height="500"></canvas>
+    </body>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var context = canvas.getContext("2d");
+        //对象
+        function Rect (x,y,w,h,color)
+        {
+            this.x = x;
+            this.y = y;
+            this.w = w;
+            this.h = h;
+            this.color = color;
+        }
+        //画的方法
+        Rect.prototype.draw = function () {
+            context.beginPath();
+            context.fillStyle = this.color;
+            context.rect(this.x,this.y,this.w,this.h);
+            context.fill();
+            context.stroke();
+        }
+        //蛇对象
+        function Snake () {
+            var snakeArray = [];
+            for (var i = 0; i < 2; i++){
+                var rect = new Rect(i*20,0,20,20,'green');
+                snakeArray.splice(0,0,rect);
+            }
+        //蛇头
+        var head = snakeArray[0];
+        head.color = 'red';
+        
+        this.head = snakeArray[0];
+        this.snakeArray = snakeArray;
+        this.direction = 0;
+    }
+        
+        //画蛇
+        Snake.prototype.draw = function () {
+            for (var i = 0; i < this.snakeArray.length; i++)
+            {
+                this.snakeArray[i].draw();
+            }
+        }
+        
+        //蛇移动
+        Snake.prototype.move = function () {
+            
+            if(this.direction !== 0)
+            {
+            var rect = new Rect(this.head.x, this.head.y,this.head.w,this.head.h,"green");
+            this.snakeArray.splice(1,0,rect);
+            
+            if(isEat())
+                {
+                    food = new getRandomFood();
+                }
+            else{
+                this.snakeArray.pop();
+            }
+            
+            switch (this.direction){
+                case 37:
+                    this.head.x -= this.head.w
+                    break;
+                case 38:
+                    this.head.y -= this.head.h
+                    break;
+                case 39:
+                    this.head.x += this.head.w
+                    break;
+                case 40:
+                    this.head.y += this.head.h
+                    break;
+                default:
+                    break;
+            }
+            
+            //撞墙
+            if(this.head.x > canvas.width || this.head.x < 0 || this.head.y > canvas.height || this.head.y < 0){clearInterval(timer);}
+            
+            //吃自己
+            for (var i = 1; i < this.snakeArray.length;i++){
+                if(this.snakeArray[i].x == this.head.x && this.snakeArray[i].y == this.head.y)
+                 {
+                     clearInterval(timer);
+                 }
+            }
+            }
+        }
+        
+        var snake = new Snake()
+        
+        var food = new getRandomFood();
+        
+        var timer = setInterval(function () {
+            context.clearRect(0,0,canvas.width,canvas.height);
+            food.draw();
+            snake.move();
+            snake.draw();
+        },50);
+        
+//        var t =0;
+        
+        document.onkeydown = function (e){
+            var ev = e||window.event;
+            switch(ev.keyCode){
+                case 37:{
+                    if (snake.direction !== 39)
+                        {
+                            snake.direction = 37;
+                        }
+                    break;
+                }
+                case 38:{
+                    if (snake.direction !== 40)
+                        {
+                            snake.direction = 38;
+                        }
+                    break;
+                }
+                case 39:{
+                    if (snake.direction !== 37)
+                        {
+                            snake.direction = 39;
+                        }
+                    break;
+                }
+                case 40:{
+                    if (snake.direction !== 38)
+                        {
+                            snake.direction = 40;
+                        }
+                    break;
+                }
+                default:
+                    snake.direction = 0;
+            }
+            ev.preventDefault();
+        }
+        
+        function getNumberInRange (min,max) {
+            var range = max - min;
+            var r = Math.random();
+            return Math.round(r*range + min)
+        }
+        
+        function getRandomFood () {
+            var isOnSnake = true;
+            while (isOnSnake){
+                isOnSnake = false;
+                var indexX = getNumberInRange(0,canvas.width/20-1);
+                var indexY = getNumberInRange(0,canvas.height/20-1);
+                var rect = new Rect(indexX*20, indexY*20,20,20,"blue");
+                for(var i = 0; i < snake.snakeArray.length; i++)
+                    {
+                        if(snake.snakeArray[i].x ==rect.x&&snake.snakeArray[i].y == rect.y){
+                            isOnSnake = true;
+                            break;
+                        }
+                    }
+                return rect;
+            }
+        }
+        
+        function isEat() {
+            if(snake.head.x == food.x && snake.head.y == food.y){
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+//        canvas.addEventListener("click",)
+    </script>
+</html>

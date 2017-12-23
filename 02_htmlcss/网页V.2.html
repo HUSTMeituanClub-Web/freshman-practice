@@ -1,14 +1,15 @@
 <!DOCTYPE HTML>
 <html>
-    <head> 
+    <title>meituan</title>
+    <head>   
+        <script src="//code.jquery.com/jquery-1.11.3.min.js">
+            /*引入JQ*/</script>
         <style type="text/css">
             body{
                 position:absolute;
-                height: 100%;
                 width:99%;
                 background: white;
                 background-size: cover;
-                background-image: url(http://s.doyo.cn/img/50/ac/77ec9e9e78da1600003f.jpg);
             }
             a:hover{text-decoration: underline;}
             #header{
@@ -24,6 +25,15 @@
                 font-family: "Curlz MT";
                 opacity: 0.7;
                 /*z-index: 2;*/
+            }
+            #back{
+                position:fixed;
+                top:0px;
+                left: 0px;
+                width: 110%;
+                height: 100%;
+                background-image: url(http://s.doyo.cn/img/50/ac/77ec9e9e78da1600003f.jpg);
+                background-repeat: no-repeat;
             }
             #nav{
                 position:absolute;
@@ -78,7 +88,7 @@
                 font-style: italic;
                 font-size: 30px;
                 font-weight: 520;
-                line-height: inherit;
+                line-height: 35px;
                 text-align: center;
             }
             #detail{
@@ -135,6 +145,7 @@
         </style>
     </head>
     <body>
+        <div id="back"></div>
         <div id="header">Your Hompage</div>
         <div id="nav">
             <h class=color2>女神</h>
@@ -200,23 +211,59 @@
                 var first=element.firstChild;
                 element.insertBefore(para,first);
                 
-                /*var w=document.getElementById("repeat");
+                var inital = document.getElementById('comments');
+                if(inital.value != '')
+                    inital.value = '';
+            }
+            function init(){
+                
+                var w=document.getElementById("repeat").innerHTML;
                 var ul=document.getElementById("ul");
                 
-                ul.onscroll=function(){
-                    if(ul.scrollHeight-ul.scrollTop-90<30){
-                        load(w,ul);
+                
+                
+                HTMLElement.prototype.height = function() {
+                    css = window.getComputedStyle(this)
+                    height = css['height']
+                    return parseFloat(height);
+                }
+                HTMLElement.prototype.scrollBottom = function () {
+                    return this.scrollHeight - (this.clientHeight + this.scrollTop)
+                }
+                window.onscroll=function(){
+                    var oHeight=document.body.scrollHeight==0?document.documentElement.scrollHeight:document.body.scrollHeight;
+                var oTop=document.body.scrollTop==0?document.documentElement.scrollTop:document.body.scrollTop;
+                    var cHeight=document.documentElement.clientHeight;
+                    console.log(oHeight,oTop);
+                    if(oHeight - oTop - cHeight < 1){
+                        
+                        load(w,ul);    
+                        
                     }
+                                
                 }
                 function load(w,ul){
-                    var html="";
-                    html+=w;
+                    var html='';
+                    html+= w;
                     
                     ul.innerHTML=ul.innerHTML+html;
-                }*/   /*这个好像又错了。。。*/
+                }   /*这个好像又错了。。。*/
                 
-                
+                document.title = '雏田最好看！！';
+                var today = new Date();
+                if (today.getMonth()===6 && today.getDate() === 31)
+                    {
+                        alert("纪方政生日快乐！");
+                        var k = document.getElementById("repeat").innerHTML='生日快乐！';
+                    document.getElementById('back').style.backgroundImage='url(https://pbs.twimg.com/media/CwBSneiVYAA0mhH.jpg)';
+                    document.getElementById('back').style.backgroundSize = '100% 100%';
+                        document.getElementById('repeat').style.fontSize = '100px';
+                        document.getElementById('repeat').style.textAlign = 'center';
+                    }
+                if ( today.getMonth()===11 && today.getDate()===27)
+                    {alert("雏田今天过生日啦！！！Hinata！生日快乐！")}
             }
+            init();
         </script>
     </body>
 </html>
