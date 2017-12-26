@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        #cv {
+            display: block;
+            margin: 50px auto;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+<canvas id="cv" width="800" height="800"></canvas>
+</body>
+<script type="text/javascript">
+    var canvas = document.getElementById("cv");
+    var cont = canvas.getContext("2d");
+    var size = 50;
+    //方块对象
+    function Rect(x, y, w, h, c) {
+        this.x = x;
+        this.y = y;
+        this.w = w;
+        this.h = h;
+        this.c = c;
+    }
+
+    //画方块
+    Rect.prototype.draw = function() {
+        cont.beginPath();
+        cont.rect(this.x, this.y, this.w, this.h);
+        cont.fillStyle = this.c;
+        cont.fill();
+        cont.stroke();
+    }
+
+    //方块移动
+    Rect.prototype.move = function() {
+        //根据蛇的方向决定移动方向
+        switch(snake.direc) {
+            case 37:
+                this.x -= this.w;
+                break;
+            case 38:
+                this.y -= this.h;
+                break;
+            case 39:
+                this.x += this.w;
+                break;
+            case 40:
+                this.y += this.h;
+                break;
+        }
+    }
+
+    //蛇对象
+    function Snake() {
+        //初始方向
+        this.direc = 37;
+        //按键锁，避免短时间内触发两次按键
+        this.update = false;
+        //判断是否蛇头撞到身体
+        this.isOnBody = false;
+        //存储身体
+        this.bodyArr = [];
+        //初始化身体
+        for(var i = 0; i < 4; i++) {
+            this.bodyArr.push(new Rect(400 + i * size, 300, size, size, "red"));
+        }
+        //改变蛇头的颜色
+        this.bodyArr[0].c = "blue";
+    }
+
+    //蛇移动
+    Snake.prototype.move = function() {
+        //解锁
+        this.update = false;
+        //在蛇头移动后插入一个方块
+        this.bodyArr.splice(1, 0, new Rect(this.bodyArr[0].x, this.bodyArr[0].y, size, size, "red"));
+        //判断是否吃到食物，如果吃到，则再创建食物，并且不移除尾部方块
+        if(food.x == this.bodyArr[0].x && food.y == this.bodyArr[0].y) {
+            food = createFood();
+        } else {
+            this.bodyArr.pop();
+        }
+        //始终只有蛇头在移动
+        this.bodyArr[0].move();
+
+    }
+
+    //创建食物
+    function createFood() {
+        //判断食物是否在蛇身上
+        var isOnSnake = true;
+        while(isOnSnake) {
+            var x = rand(0, 800 / size);
+            var y = rand(0, 800 / size);
+            for(var i = 0; i < snake.bodyArr.length; i++) {
+                //当食物在身体上，则继续创建食物
+                if(snake.bodyArr[i].x == x && snake.bodyArr[i].y == y) {
+                    isOnSnake = true;
+                    break;
+                } else {
+                    isOnSnake = false;
+                }
+            }
+        }
+        return new Rect(x, y, size, size, "green");
+    }
+
+    var snake = new Snake();
+    var food = createFood();
+    var times = 0;
+
+    //整个动画
+    function ani() {
+        times++;
+        //降速
+        if(times % 20 == 0) {
+            cont.clearRect(0, 0, canvas.width, canvas.height);
+            //食物在蛇之前画，就不会出现蛇头变色的现象
+            food.draw();
+            snake.move();
+            for(var i = 0; i < snake.bodyArr.length; i++) {
+                snake.bodyArr[i].draw();
+            }
+        }
+
+        //判断蛇头是否撞到身体
+        for(var i = 1; i < snake.bodyArr.length; i++) {
+            if((snake.bodyArr[0].x == snake.bodyArr[i].x) && (snake.bodyArr[0].y == snake.bodyArr[i].y)) {
+                snake.isOnBody = true;
+                break;
+            } else {
+                snake.isOnBody = false
+            }
+        }
+        var gg = 0;
+        //当撞墙或者撞到身体就停止运动
+        if(snake.bodyArr[0].x < 0 || snake.bodyArr[0].x > cv.width - size || snake.bodyArr[0].y < 0 || snake.bodyArr[0].y > cv.height - size || snake.isOnBody) {
+            window.cancelAnimationFrame(gg);
+        } else {
+            gg = window.requestAnimationFrame(ani);
+        }
+    }
+    ani();
+
+    //按键事件
+    document.onkeydown = function(e) {
+        var ev = e || window.event;
+        if(!snake.update) {
+            switch(ev.keyCode) {
+                case 37:
+                    if(snake.direc != 39) {
+                        snake.direc = 37;
+                        snake.update = true;
+                    }
+                    break;
+                case 38:
+                    if(snake.direc != 40) {
+                        snake.direc = 38;
+                        snake.update = true;
+                    }
+                    break;
+                case 39:
+                    if(snake.direc != 37) {
+                        snake.direc = 39;
+                        snake.update = true;
+                    }
+                    break;
+                case 40:
+                    if(snake.direc != 38) {
+                        snake.direc = 40;
+                        snake.update = true;
+                    }
+                    break;
+            }
+        }
+    }
+
+    //随机数
+    function rand(min, max) {
+        return parseInt(Math.random() * (max - min) + min) * 50;
+    }
+</script>
+
+</html>
